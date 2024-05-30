@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configstore>
+	<config type="default">
+		<configuration>
+			<name>panelId</name>
+			<value>1</value>
+		</configuration>
+		<!-- type 0:qdutils::DISPLAY_PRIMARY 3:qdutils::DISPLAY_BUILTIN_2-->
+		<configuration>
+			<name>qdutilsDisplayType</name>
+			<value>0</value>
+		</configuration>
+		<configuration>
+			<name>dbvNodePath</name>
+			<value>/sys/class/backlight/panel0-backlight/brightness</value>
+		</configuration>
+		<configuration>
+			<name>dcNodePath</name>
+			<value>/sys/class/drm/card0-DSI-1/panelDC</value>
+		</configuration>
+		<configuration>
+			<name>brightnessRange</name>
+			<value>14056</value>
+		</configuration>
+		<!-- windowLeft Top Width Height -->
+		<configuration>
+			<name>windowRect</name>
+			<value>669,73,104,104</value>
+		</configuration>
+		<configuration>
+			<name>panelWidthCorrect</name>
+			<value>1088</value>
+		</configuration>
+		<configuration>
+			<name>passByLuxThresh</name>
+			<value>5000.0</value>
+		</configuration>
+		<configuration>
+			<name>pwmToDcDbv</name>
+			<value>5292</value>
+		</configuration>
+		<!-- model input select  0:juno 1:maven/frontier -->
+		<configuration>
+			<name>model_input_select</name>
+			<value>0</value>
+		</configuration>
+		<configuration>
+			<name>lux_filter_so</name>
+			<value>panel_als_comp_filter_ctwo.so</value>
+		</configuration>
+		<configuration>
+			<name>als_lux_ch_coefs</name>
+			<value>0.001,26.058, 138.291,-12.979,-8.729</value>
+		</configuration>
+		<!-- channel raw data under dvb 10000 -->
+		<configuration>
+			<name>single_golden_ch</name>
+			<value>121.62023,68.858734,46.77657,21.966454</value>
+		</configuration>
+		<!-- channel raw data under multi panel dbv & fps -->
+		<configuration>
+			<name>multi_dbv_golden_ch_new</name>
+			<value>12,0,0,60,2000,0,38,32,7,95,0,0,60,4500,0,194,144,44,450,0,0,60,6716,0,449,337,107,1040,0,0,60,9000,0,830,636,203,1937,0,0,60,14000,0,2230,1728,538,5191,0,0,60,435,1,16,11,1,38,0,0,60,1200,1,26,18,3,59,0,0,60,2000,1,47,31,8,106,0,0,60,4500,1,197,145,44,455,0,0,60,6716,1,450,338,106,1040,0,0,60,9000,1,830,637,205,1939,0,0,60,14000,1,2219,1728,558,5197</value>
+		</configuration>
+		<!-- type 1:dc on and dc off model 2: one model-->
+		<configuration>
+			<name>tensorflow_use_type</name>
+			<value>1</value>
+		</configuration>
+		<configuration>
+			<name>tfModePath</name>
+			<value>/vendor/etc/sensors/als_comp_tf_csot_c8.config</value>
+		</configuration>
+		<configuration>
+			<name>tfModeDcPath</name>
+			<value>/vendor/etc/sensors/als_comp_tf_csot_c8_dc_on.config</value>
+		</configuration>
+	</config>
+</Configstore>

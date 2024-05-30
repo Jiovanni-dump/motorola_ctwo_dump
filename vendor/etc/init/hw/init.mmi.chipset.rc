@@ -1,0 +1,111 @@
+# Charge only mode configuration
+import /vendor/etc/init/hw/init.mmi.charge_only.rc
+
+on init
+    wait_for_prop vendor.all.modules.ready 1
+    chown system system /sys/devices/platform/soc/1d84000.ufshc/ufshid/trigger
+    chmod 0660 /sys/devices/platform/soc/1d84000.ufshc/ufshid/trigger
+    chown system system /sys/devices/platform/soc/1d84000.ufshc/manual_gc
+    chmod 0660 /sys/devices/platform/soc/1d84000.ufshc/manual_gc
+
+
+on init && property:ro.boot.default_usb_mode=device
+    setprop vendor.usb.controller ${ro.boot.usbcontroller}
+    setprop sys.usb.controller ${vendor.usb.controller}
+    wait /sys/bus/platform/devices/${ro.boot.usb.dwc3_msm:-a600000.ssusb}/mode
+    write /sys/bus/platform/devices/${ro.boot.usb.dwc3_msm:-a600000.ssusb}/mode peripheral
+
+on early-boot
+    start vendor.mmi-usb-sh
+
+on early-boot && property:ro.bootmode=mot-factory
+    chown system system /sys/private/tlmm_count
+    chown system system /sys/private/tlmm_num
+    chmod 0660 /sys/private/tlmm_count
+    chmod 0660 /sys/private/tlmm_num
+
+on early-boot && property:ro.boot.bm_ulog_enabled=1
+    write /sys/module/bm_adsp_ulog/parameters/debug_enabled 1
+
+on moto-charger && property:ro.boot.bm_ulog_enabled=1
+    write /sys/module/bm_adsp_ulog/parameters/debug_enabled 1
+
+on property:sys.boot_completed=1
+    write /sys/devices/platform/soc/soc:mmi,charger/state_sync 1
+    chown root system /sys/devices/platform/soc/soc:qcom,pmic_glink/soc:qcom,pmic_glink:mmi,qti-glink-charger/typec_reset
+
+on property:sys.boot_completed=1 && property:ro.vendor.build.motfactory=1
+    write /sys/class/power_supply/battery/device/factory_image_mode 1
+    chown system system /sys/class/power_supply/battery/device/force_charger_suspend
+
+on property:ro.build.type=userdebug
+    insmod /vendor/lib/modules/watchdogtest.ko
+
+service vendor.qrtr-lookup-sh /vendor/bin/init.mmi.qrtr-lookup.sh
+    class late_start
+    user root
+    group log system
+    oneshot
+    disabled
+
+on property:sys.boot_completed=1 && property:ro.product.is_production=false
+    start vendor.qrtr-lookup-sh
+
+on init && property:ro.product.is_production=true
+    write /sys/kernel/cnss/recovery 1
+
+on boot && property:ro.boot.product.vendor.sku=pineapple
+    start vendor.sputestclientv2
+
+service vendor.sputestclientv2 /vendor/bin/sputestclientv2
+    class main
+    user system
+    group root system
+    oneshot
+    disabled
+
+on property:ro.build.type=userdebug
+    insmod /vendor/lib/modules/watchdogtest.ko
+
+on property:ro.boot.console="" && property:init.svc.console=running
+    stop console
+
+on property:sys.boot_completed=1 && property:ro.debuggable=1
+    write /sys/kernel/tracing/tracing_on 0
+    write /sys/kernel/tracing/set_event ""
+    write /sys/kernel/tracing/trace ""
+    write /sys/kernel/tracing/buffer_size_kb  102400
+    write /sys/kernel/tracing/events/rwmmio/enable 1
+    write /sys/kernel/tracing/events/kvm/kvm_entry/enable 1
+    write /sys/kernel/tracing/events/kvm/kvm_exit/enable 1
+    write /sys/kernel/tracing/events/workqueue/enable 1
+    # sched
+    write /sys/kernel/tracing/events/sched/enable 1
+    write /sys/kernel/tracing/sched/sched_cpu_hotplug/enable 1
+    write /sys/kernel/tracing/events/sched/sched_pi_setprio/enable 1
+    write /sys/kernel/tracing/events/sched/sched_switch/enable 1
+    write /sys/kernel/tracing/events/sched/sched_enq_deq_task/enable 1
+    write /sys/kernel/tracing/events/sched/sched_migrate_task/enable 1
+    write /sys/kernel/tracing/events/sched/sched_wakeup/enable 1
+    write /sys/kernel/tracing/events/sched/sched_wakeup_new/enable 1
+    write /sys/kernel/tracing/events/schedwalt/halt_cpus/enable 1
+    write /sys/kernel/tracing/events/schedwalt/halt_cpus_start/enable 1
+    # irq
+    write /sys/kernel/tracing/events/irq/enable 1
+    # timer
+    write /sys/kernel/tracing/events/timer/enable 1
+    write /sys/kernel/tracing/events/timer/timer_expire_entry/enable 1
+    write /sys/kernel/tracing/events/timer/timer_expire_exit/enable 1
+    write /sys/kernel/tracing/events/timer/hrtimer_cancel/enable 1
+    write /sys/kernel/tracing/events/timer/hrtimer_expire_entry/enable 1
+    write /sys/kernel/tracing/events/timer/hrtimer_expire_exit/enable 1
+    write /sys/kernel/tracing/events/timer/hrtimer_init/enable 1
+    write /sys/kernel/tracing/events/timer/hrtimer_start/enable 1
+    # hot-plug
+    write /sys/kernel/tracing/events/cpuhp/enable 1
+    write /sys/kernel/tracing/events/power/enable 1
+    write /sys/kernel/tracing/events/power/cpu_idle/enable 1
+    write /sys/kernel/tracing/events/power/suspend_resume/enable 1
+    write /sys/kernel/tracing/events/power/cpu_frequency/enable 1
+    write /sys/kernel/tracing/tracing_on 1
+
