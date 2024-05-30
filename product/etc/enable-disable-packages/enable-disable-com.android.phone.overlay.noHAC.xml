@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<enable-disable-package>
+    <package-disable-enable-criteria package="com.android.phone.overlay.noHAC" default_action="enable">
+        <criteria action="disable" channel="att;attpre;cricket" />
+        <criteria action="disable" channel="boost" />
+        <criteria action="disable" channel="cc" />
+        <criteria action="disable" channel="comcast" />
+        <criteria action="disable" channel="fi" />
+        <criteria action="disable" channel="retca" />
+        <criteria action="disable" channel="retus" />
+        <criteria action="disable" channel="spectrum" />
+        <criteria action="disable" channel="tmo" />
+        <criteria action="disable" channel="tracfone" />
+        <criteria action="disable" channel="usc" />
+        <criteria action="disable" channel="vzw;vzwpre" />
+    </package-disable-enable-criteria>
+</enable-disable-package>

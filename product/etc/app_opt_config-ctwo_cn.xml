@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    App optimizations device config
+-->
+<app-optimization version="1">
+
+    <devconfig>
+        <thermal-sensor>back_temp</thermal-sensor>
+        <!-- cpu profiles from low to high
+        MAX_FREQ_CLUSTER_LITTLE_CORE_0 = 0x40804100,
+        MIN_FREQ_CLUSTER_LITTLE_CORE_0 = 0x40800100,
+        MAX_FREQ_CLUSTER_BIG_CORE_0 = 0x40804000,
+        MIN_FREQ_CLUSTER_BIG_CORE_0 = 0x40800000,
+        MAX_FREQ_CLUSTER_PRIME_CORE_0 = 0x40804200,
+        MIN_FREQ_CLUSTER_PRIME_CORE_0 = 0x40800200,
+        GPU_MIN_PWRLVL = 0x42804000,
+        SCHEDBOOST = 0x40C00000
+        POWER COLLAPSE = 0x40400000,
+        STORAGE CLK SCALING = 0x42C10000
+        MIN_ONLINE_CPU_CLUSTER_BIG = 0x41000000
+        MIN_ONLINE_CPU_CLUSTER_PRIME = 0x41000200
+        DISPLAY_ON = 0x40000000
+        -->
+        <profile-adjuster name="0" dropFramesPC="0.95" downTimeout="2000" upFramesPC="0.92" dropJankPC="0.04" upJankPC="0.05" downCpuUtil="35" upCpuUtil="64" bypassFPS="10"/>
+        <profile-adjuster name="1" dropFramesPC="0.85" downTimeout="2000" upFramesPC="0.92" dropJankPC="0.15" upJankPC="0.05" downCpuUtil="40" upCpuUtil="68" bypassFPS="10"/>
+        <profile name="1">0x40804100, 1228, 0x40804000, 1056, 0x40804200, 787</profile>     <!--cpu0:232 cpu3:329 cpu7:267 total cap=2279-->
+        <profile name="2">0x40804100, 1478, 0x40804000, 1286, 0x40804200, 787</profile>     <!--cpu0:279 cpu3:401 cpu7:267 total cap=2708-->
+        <profile name="3">0x40804100, 1843, 0x40804000, 1593, 0x40804200, 1094</profile>    <!--cpu0:347 cpu3:496 cpu7:372 total cap=3397-->
+        <profile name="4">0x40804100, 1900, 0x40804000, 2073, 0x40804200, 1209</profile>    <!--cpu0:358 cpu3:646 cpu7:411 total cap=4069-->
+        <profile name="5">0x40804100, 1900, 0x40804000, 2361, 0x40804200, 1651</profile>    <!--cpu0:358 cpu3:735 cpu7:561 total cap=4575-->
+        <profile name="6">0x40804100, 2016, 0x40804000, 2572, 0x40804200, 1900</profile>    <!--cpu0:380 cpu3:801 cpu7:646 total cap=4990-->
+        <profile name="7">0x40804100, 2016, 0x40804000, 2707, 0x40804200, 2918</profile>    <!--cpu0:380 cpu3:843 cpu7:991 total cap=5503 end-->
+        <profile name="11">0x40000000, 0, 0x40804100, 1478, 0x40804000, 1401, 0x40804200, 787</profile>
+        <profile name="12">0x40000000, 0, 0x40804100, 1593, 0x40804000, 1708, 0x40804200, 1094</profile>
+        <profile name="mover">0x40804100, 1344, 0x40804000, 1401, 0x40804200, 1651</profile>
+        <profile name="heavy">0x40400000, 1, 0x42C10000, 1</profile>
+        <profile name="heavy_lite">0x42C10000, 1</profile>
+        <profile name="cert_app_boost">0x40804000, 0xFFF, 0x40804100, 0xFFF, 0x40804200, 0xFFF, 0x40800000, 0xFFF, 0x40800100, 0xFFF, 0x40800200, 0xFFF</profile>
+    </devconfig>
+
+    <!-- classified apps -->
+    <optimization name="base_app" mode="normal">
+        <supported-modes>video_mode, video_fullscreen_mode, camera_mode</supported-modes>
+        <profile-adjuster>0</profile-adjuster>
+        <limit temp="0" tempClr="-20" profile="1-7"/>
+        <limit temp="41" tempClr="39" profile="1-5" rr="90"/>           <!--thermal config cpu0 2016, cpu3 1920, cpu7 1900-->
+        <limit temp="44" tempClr="42" profile="1-4" thermalrr="60"/>    <!--thermal config cpu0 1593, cpu3 1708, cpu7 1651-->
+    </optimization>
+
+    <optimization name="base_app" mode="perf">
+        <supported-modes>video_mode, video_fullscreen_mode, camera_mode</supported-modes>
+        <profile-adjuster>0</profile-adjuster>
+        <limit profile="1-7"/>
+        <thermal>bperf</thermal>
+    </optimization>
+
+    <optimization name="base_app" mode="powersave">
+        <supported-modes>video_mode, video_fullscreen_mode, camera_mode</supported-modes>
+        <profile-adjuster>0</profile-adjuster>
+        <limit profile="1-5"/>
+    </optimization>
+
+    <optimization name="rr_opt_app" parent="base_app">
+        <default-rr>auto</default-rr>
+    </optimization>
+
+    <optimization name="rr_limit_app" parent="rr_opt_app" mode="normal">
+        <limit temp="0" tempClr="-20" profile="1-7" rr="90"/>
+        <limit temp="44" tempClr="42" profile="1-4" thermalrr="60"/>
+    </optimization>
+
+    <optimization name="rr_limit_app" parent="rr_opt_app" mode="perf">
+    </optimization>
+
+    <optimization name="rr_limit_app" parent="rr_opt_app" mode="powersave">
+    </optimization>
+
+    <optimization name="navigation_app" parent="rr_opt_app" mode="normal">
+        <idle-fps>30</idle-fps>
+        <profile-adjuster>1</profile-adjuster>
+        <maxe-profile>aba</maxe-profile>
+    </optimization>
+
+    <optimization name="navigation_app" parent="rr_opt_app" mode="perf">
+        <profile-adjuster>1</profile-adjuster>
+    </optimization>
+
+    <optimization name="navigation_app" parent="rr_opt_app" mode="powersave">
+        <idle-fps>30</idle-fps>
+        <profile-adjuster>1</profile-adjuster>
+        <maxe-profile>aba</maxe-profile>
+    </optimization>
+
+    <optimization name="reading_app" parent="navigation_app">
+        <profile-adjuster>0</profile-adjuster>
+    </optimization>
+
+    <optimization name="rr_deep_opt_app" parent="rr_opt_app" mode="normal">
+        <min-fps>30</min-fps>
+    </optimization>
+
+    <optimization name="rr_deep_opt_app" parent="rr_opt_app" mode="perf">
+    </optimization>
+
+    <optimization name="rr_deep_opt_app" parent="rr_opt_app" mode="powersave">
+        <min-fps>30</min-fps>
+    </optimization>
+
+    <optimization name="low_latency_app" parent="rr_opt_app" mode="normal">
+        <llm>true</llm>
+    </optimization>
+
+    <optimization name="low_latency_app" parent="rr_opt_app" mode="perf">
+        <llm>true</llm>
+    </optimization>
+
+    <optimization name="low_latency_app" parent="rr_opt_app" mode="powersave">
+    </optimization>
+
+    <optimization name="settings_app" parent="base_app" mode="normal">
+        <limit temp="0" tempClr="-20" profile="1-7"/>
+        <limit temp="41" tempClr="39" profile="1-5" rr="90"/>
+        <limit temp="44" tempClr="42" profile="1-4" rr="60"/>
+    </optimization>
+
+    <optimization name="settings_app" parent="base_app" mode="perf">
+    </optimization>
+
+    <optimization name="settings_app" parent="base_app" mode="powersave">
+    </optimization>
+
+    <optimization name="mover" parent="rr_opt_app">
+        <profile-adjuster remove-tag="true"/>
+        <limit temp="0" tempClr="-20" profile="mover" rr="90"/>
+        <limit temp="44" tempClr="42" profile="mover" thermalrr="60"/>
+        <thermal>mover</thermal>
+    </optimization>
+
+    <optimization name="browsing_app" parent="base_app" mode="normal">
+        <maxe-profile>aba</maxe-profile>
+    </optimization>
+
+    <optimization name="browsing_app" parent="base_app" mode="perf">
+    </optimization>
+
+    <optimization name="browsing_app" parent="base_app" mode="powersave">
+        <maxe-profile>aba</maxe-profile>
+    </optimization>
+
+    <optimization name="teams_app" parent="low_latency_app" mode="normal">
+        <maxe-profile>aba</maxe-profile>
+    </optimization>
+
+    <optimization name="teams_app" parent="low_latency_app" mode="perf">
+    </optimization>
+
+    <optimization name="teams_app" parent="low_latency_app" mode="powersave">
+        <maxe-profile>aba</maxe-profile>
+    </optimization>
+
+    <optimization name="disable_acf_app" parent="base_app" mode="normal">
+        <profile-adjuster remove-tag="true"/>
+        <limit temp="41" tempClr="39" rr="90"/>
+        <limit temp="44" tempClr="42" thermalrr="60"/>
+    </optimization>
+
+    <optimization name="disable_acf_app" parent="base_app" mode="perf">
+        <profile-adjuster remove-tag="true"/>
+    </optimization>
+
+    <optimization name="disable_acf_app" parent="base_app" mode="powersave">
+        <profile-adjuster remove-tag="true"/>
+    </optimization>
+
+    <optimization name="rr_extra_app" parent="rr_limit_app">
+    </optimization>
+
+    <optimization name="normal_app" parent="base_app">
+    </optimization>
+
+    <optimization name="heavy_load_app">
+        <boost rr="120" profile="heavy"/>
+        <thermal>perf</thermal>
+    </optimization>
+
+    <optimization name="heavy_load_app_5">
+        <boost rr="120" profile="heavy_lite"/>
+        <thermal>perf</thermal>
+    </optimization>
+
+    <optimization name="heavy_load_lite_app">
+        <boost profile="heavy_lite"/>
+        <thermal>perf</thermal>
+    </optimization>
+
+    <optimization name="cert_app">
+        <boost profile="cert_app_boost"/>
+        <thermal>perf</thermal>
+    </optimization>
+
+    <!-- recognized in-app modes, will merge with app opt at runtime -->
+    <optimization name="video_mode">
+        <default-rr>auto</default-rr>
+    </optimization>
+
+    <optimization name="video_fullscreen_mode" mode="normal">
+        <default-rr>video</default-rr>
+        <limit temp="0" tempClr="-20" profile="1-6"/>
+        <limit temp="40" tempClr="38" profile="1-4" thermalrr="90"/>
+        <limit temp="43" tempClr="41" profile="1-3" thermalrr="60"/>
+    </optimization>
+
+    <optimization name="video_fullscreen_mode" mode="perf">
+        <default-rr>video</default-rr>
+        <limit profile="1-7"/>
+    </optimization>
+
+    <optimization name="video_fullscreen_mode" mode="powersave">
+        <default-rr>video</default-rr>
+        <limit profile="1-4"/>
+    </optimization>
+
+    <optimization name="camera_mode">
+        <default-rr remove-tag="true"/>
+        <maxe-profile remove-tag="true"/>
+        <limit remove-tag="true"/>
+        <thermal>camera</thermal>
+    </optimization>
+
+    <!-- global modes -->
+    <optimization name="fast_charging_mode">
+        <thermal>fastc</thermal>
+    </optimization>
+
+    <optimization name="wireless_charging_mode">
+        <thermal>wl</thermal>
+    </optimization>
+
+    <optimization name="battery_low_mode">
+        <limit rr="90"/>
+    </optimization>
+
+    <optimization name="device_hot_mode">
+        <limit temp="0" tempClr="-20" profile="12"/>
+        <limit temp="38" tempClr="36" profile="11"/>
+    </optimization>
+
+    <!-- optimizations -->
+    <optimization name="com.netease.newsreader.activity" refs="rr_opt_app" />
+    <optimization name="com.sohu.newsclient" refs="rr_opt_app" />
+    <optimization name="com.android.dialer" refs="rr_opt_app" />
+    <optimization name="com.reddit.frontpage" refs="reading_app" />
+    <optimization name="com.qidian.QDReader" refs="reading_app" />
+    <optimization name="com.chaozh.iReaderFree" refs="reading_app" />
+    <optimization name="us.zoom.videomeetings" refs="low_latency_app" />
+
+    <optimization name="com.motorola.cn.devicemigration" refs="mover" />
+
+    <optimization name="com.android.settings" refs="settings_app" />
+    <optimization name="com.motorola.coresettingsext" refs="settings_app" />
+
+    <optimization name="com.lenovo.leos.appstore" refs="disable_acf_app" />
+   <optimization name="com.zui.filemanager" refs="disable_acf_app" />
+
+    <optimization name="com.android.chrome" refs="browsing_app" />
+    <optimization name="org.mozilla.firefox" refs="browsing_app" />
+    <optimization name="com.brave.browser" refs="browsing_app" />
+    <optimization name="om.opera.browser" refs="browsing_app" />
+    <optimization name="com.microsoft.emmx" refs="browsing_app" />
+    <optimization name="com.UCMobile" refs="browsing_app" />
+    <optimization name="com.zui.browser" refs="browsing_app" />
+    <optimization name="com.tencent.mtt" refs="browsing_app" />
+    <optimization name="com.quark.browser" refs="browsing_app" />
+
+    <optimization name="com.microsoft.teams" refs="teams_app" />
+
+    <optimization name="org.chromium.latency.walt" refs="cert_app" />
+
+    <optimization name="com.eg.android.AlipayGphone" refs="rr_extra_app" />
+</app-optimization>
