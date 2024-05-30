@@ -1,0 +1,6 @@
+vendor/etc/camera/vidhance.lic.xz
+vendor/lib64/libarcsoft_turbo_hdr_raw.so.xz
+vendor/lib64/libarcsoft_turbo_motion_capture_raw.so.xz
+vendor/lib64/libdeep_raw_models.so.xz
+recovery.img.xz
+bootRE/boot.elf.xz

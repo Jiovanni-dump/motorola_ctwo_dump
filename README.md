@@ -1,0 +1,14 @@
+# user 14 U3UV34.26-39-6 adb1e0 release-keys
+- manufacturer: motorola
+- platform: pineapple
+- codename: ctwo
+- flavor: user
+- release: 14
+- id: U3UV34.26-39-6
+- incremental: adb1e0
+- tags: release-keys
+- fingerprint: motorola/ctwo/ctwo:14/U3UV34.26-39-6/adb1e0:user/release-keys
+- is_ab: true
+- brand: motorola
+- branch: user-14-U3UV34.26-39-6-adb1e0-release-keys
+- repo: motorola_ctwo_dump
