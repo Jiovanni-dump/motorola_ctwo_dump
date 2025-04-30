@@ -1,0 +1,14 @@
+# user 15 UUV34HV-V1-ST1.2 f2caa release-keys
+- manufacturer: motorola
+- platform: pineapple
+- codename: ctwo
+- flavor: user
+- release: 15
+- id: UUV34HV-V1-ST1.2
+- incremental: f2caa
+- tags: release-keys
+- fingerprint: motorola/ctwo/ctwo:14/UUV34HV-V1-ST1.2/f2caa:user/release-keys
+- is_ab: true
+- brand: motorola
+- branch: user-15-UUV34HV-V1-ST1.2-f2caa-release-keys
+- repo: motorola_ctwo_dump
