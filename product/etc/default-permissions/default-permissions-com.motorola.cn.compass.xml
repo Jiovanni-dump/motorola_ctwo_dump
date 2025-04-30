@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<exceptions>
+    <exception package="com.motorola.cn.compass"
+        cert="C4:63:FA:2A:03:51:08:6D:D6:32:8D:9D:AF:62:18:14:6E:E1:65:15:21:C1:CB:6B:4C:53:8F:85:EE:EC:7A:3C">
+        <permission name="android.permission.ACCESS_FINE_LOCATION" fixed="false"/>
+    </exception>
+</exceptions>

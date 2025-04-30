@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<permissions>
+    <privapp-permissions package="com.motorola.adaptivebrightness">
+        <permission name="android.permission.BRIGHTNESS_SLIDER_USAGE"/>
+        <permission name="android.permission.CONFIGURE_DISPLAY_BRIGHTNESS"/>
+        <permission name="android.permission.WRITE_SETTINGS"/>
+    </privapp-permissions>
+</permissions>

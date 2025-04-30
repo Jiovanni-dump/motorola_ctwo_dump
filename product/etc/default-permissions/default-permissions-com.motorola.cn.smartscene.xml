@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<exceptions>
+    <exception package="com.motorola.cn.smartscene">
+        <permission name="android.permission.BLUETOOTH_CONNECT" fixed="true" />
+        <permission name="android.permission.POST_NOTIFICATIONS" fixed="true" />
+    </exception>
+</exceptions>

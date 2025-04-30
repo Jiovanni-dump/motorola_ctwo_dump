@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<permissions>
+     <privapp-permissions package="com.motorola.cn.smartscene">
+        <!-- Used to get clone apps list-->
+        <permission name="android.permission.INTERACT_ACROSS_USERS" />
+        <!-- Used to start the user set app from Smartscene service -->
+        <permission name="android.permission.START_ACTIVITIES_FROM_BACKGROUND" />
+        <!-- Enable or disable Power saving with PowerManager.setPowerSaveModeEnabled privileged -->
+        <permission name="android.permission.POWER_SAVER" />
+        <!-- Read or set the DND mode duration time with Settings.Secure -->
+        <permission name="android.permission.WRITE_SECURE_SETTINGS" />
+        <!-- Used to power off the device in SleepService.powerOffDevice -->
+        <permission name="android.permission.SHUTDOWN" />
+    </privapp-permissions>
+</permissions>

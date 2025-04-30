@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<exceptions>
+    <exception package="com.lenovo.lsf">
+        <permission name="android.permission.READ_SMS" fixed="false"/>
+    </exception>
+</exceptions>

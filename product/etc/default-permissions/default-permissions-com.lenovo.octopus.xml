@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<exceptions>
+    <exception package="com.lenovo.octopus"
+        cert="61:D4:79:6F:E1:2C:C6:6E:12:6C:35:18:BB:91:40:EB:02:90:D6:81:D0:6F:7D:AC:B9:B8:AC:72:D3:58:42:E2">
+        <permission name="android.permission.GET_ACCOUNTS" fixed="false"/>
+    </exception>
+</exceptions>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- These are configurations that require for Google AI Core. -->
+<config>
+
+    <!-- AI services open-source network component can bind to AI Core. -->
+    <allow-association target="com.google.android.as.oss" allowed="com.google.android.aicore" />
+
+    <!-- If GoogleAICore is installed, let it run in the background -->
+    <allow-in-power-save package="com.google.android.aicore" />
+</config>

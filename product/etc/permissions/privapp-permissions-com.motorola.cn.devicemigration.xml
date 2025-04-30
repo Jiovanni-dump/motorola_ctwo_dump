@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<permissions>
+    <privapp-permissions package="com.motorola.cn.devicemigration">
+        <permission name="android.permission.TETHER_PRIVILEGED" />
+        <permission name="android.permission.OVERRIDE_WIFI_CONFIG" />
+        <permission name="android.permission.INSTALL_PACKAGES"/>
+        <permission name="android.permission.NETWORK_SETTINGS"/>
+        <permission name="android.permission.MANAGE_WIFI_NETWORK_SELECTION"/>
+        <!-- for Android D2D -->
+        <permission name="android.permission.BACKUP"/>
+        <permission name="android.permission.MANAGE_USB"/>
+        <permission name="android.permission.MANAGE_USERS"/>
+        <permission name="android.permission.READ_PRIVILEGED_PHONE_STATE"/>
+        <permission name="android.permission.SUBSTITUTE_NOTIFICATION_APP_NAME"/>
+        <permission name="android.permission.WRITE_EMBEDDED_SUBSCRIPTIONS"/>
+        <permission name="android.permission.WRITE_SECURE_SETTINGS"/>
+        <permission name="android.permission.READ_WIFI_CREDENTIAL"/>
+     </privapp-permissions>
+</permissions>

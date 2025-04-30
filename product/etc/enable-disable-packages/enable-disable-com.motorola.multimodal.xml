@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<enable-disable-package>
+    <package-disable-enable-criteria package="com.motorola.multimodal" default_action="enable">
+        <criteria action="remove" prop="ro.vendor.hw.ram" prop_value="3GB;4GB;6GB"/>
+    </package-disable-enable-criteria>
+</enable-disable-package>

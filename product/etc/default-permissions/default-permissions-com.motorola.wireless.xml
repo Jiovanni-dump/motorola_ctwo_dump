@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+      Copyright (C) 2023 Motorola Mobility LLC,
+      All Rights Reserved.
+      Motorola Mobility Confidential Restricted.
+-->
+<exceptions>
+    <exception package="com.motorola.wireless">
+        <permission name="android.permission.BLUETOOTH_CONNECT" fixed="false" />
+        <permission name="android.permission.BLUETOOTH_SCAN" fixed="false" />
+    </exception>
+</exceptions>
