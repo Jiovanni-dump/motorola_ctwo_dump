@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<permissions>
+    <privapp-permissions package="com.motorola.cn.searchintelligence">
+        <permission name="android.permission.READ_SEARCH_INDEXABLES" />
+    </privapp-permissions>
+</permissions>

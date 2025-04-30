@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ **
+ * Copyright (C) 2024 Motorola Mobility, Inc.
+ * All Rights Reserved
+ *
+ * The contents of this file are Motorola Confidential Restricted (MCR).
+ *
+-->
+<config>
+    <!-- MOTO IKSWU-65300 guojg2 Export special access settings page for PRC product -->
+    <component-override package="com.android.settings">
+        <component
+            class="com.motorola.settings.MotoSettings$SpecialAccessSettingsActivity"
+            enabled="true" />
+        <!-- IKSWU-127397 tanct1 Enable AIRepoSettingsActivity for PRC products -->
+        <component
+            class="com.motorola.settings.MotoSettings$AIRepoSettingsActivity"
+            enabled="true" />
+        <!-- IKSWU-169537 zhuxz2 Enable VibrationSettingsActivity for PRC products -->
+        <component
+            class="com.motorola.settings.MotoSettings$VibrationSettingsActivity"
+            enabled="true" />
+        <!--MOTO BEGIN wanglx15 IKSWU-170358:PRC product should add CTA process-->
+        <component
+            class="com.motorola.settings.biometrics.fingerprint.FingerprintCTA"
+            enabled="true" />
+        <!--MOTO END wanglx15 IKSWU-170358-->
+    </component-override>
+</config>

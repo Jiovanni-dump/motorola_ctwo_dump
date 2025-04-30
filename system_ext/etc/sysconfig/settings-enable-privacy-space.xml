@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ **
+ * Copyright (C) 2021 Motorola Mobility, Inc.
+ * All Rights Reserved
+ *
+ * The contents of this file are Motorola Confidential Restricted (MCR).
+ *
+-->
+<config>
+    <component-override package="com.android.settings">
+        <component
+            class="com.motorola.settings.security.screenlock.SetPrivacyPasswordActivity"
+            enabled="true" />
+        <component
+            class="com.motorola.settings.security.screenlock.PrivacySpaceChooseLockPattern"
+            enabled="true" />
+        <component
+            class="com.motorola.settings.security.screenlock.PrivacySpaceChooseLockPassword"
+            enabled="true" />
+        <component
+            class="com.motorola.settings.security.screenlock.PrivacySpaceRedactionInterstitial"
+            enabled="true" />
+    </component-override>
+</config>
