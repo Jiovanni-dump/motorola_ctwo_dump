@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- hide app clone launcher icon
+Eg: <hidden-launcher-app-clone component="com.android.example/.MainActivity" />
+-->
+<config>
+</config>

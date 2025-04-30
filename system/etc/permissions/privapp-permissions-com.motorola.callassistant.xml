@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<permissions>
+     <privapp-permissions package="com.motorola.callassistant">
+       <permission name="android.permission.CAPTURE_VOICE_COMMUNICATION_OUTPUT"/>
+       <permission name="android.permission.MODIFY_AUDIO_ROUTING"/>
+       <permission name="android.permission.CAPTURE_AUDIO_OUTPUT"/>
+       <permission name="android.permission.CONTROL_INCALL_EXPERIENCE"/>
+       <permission name="android.permission.WRITE_SECURE_SETTINGS"/>
+       <permission name="android.permission.INTERACT_ACROSS_USERS"/>
+       <permission name="com.motorola.permission.ASR_PRIVILEGED_PERMISSION_FOR_AUDIO"/>
+    </privapp-permissions>
+</permissions>

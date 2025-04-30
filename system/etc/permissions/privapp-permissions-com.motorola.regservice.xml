@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<permissions>
+    <privapp-permissions package="com.motorola.regservice">
+        <!-- CMCCDM -->
+        <permission name="android.permission.READ_PRIVILEGED_PHONE_STATE"/>
+        <permission name="android.permission.PACKAGE_USAGE_STATS"/>
+        <permission name="android.permission.SCHEDULE_EXACT_ALARM"/>
+        <!-- CTDM -->
+        <permission name="android.permission.CARRIER_FILTER_SMS"/>
+    </privapp-permissions>
+</permissions>
+

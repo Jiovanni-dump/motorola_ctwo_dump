@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- app clone user whitelist
+Eg: <required-app-clone package="com.android.example" />
+-->
+<config>
+    <!-- Fix system_server crash due to not found permission controller -->
+    <required-app-clone package="com.android.permissioncontroller" />
+
+    <!-- Fix IKSWR-75082: Create 5 app clones, cannot be synchronized to launcher immediately -->
+    <required-app-clone package="com.android.printspooler" />
+
+    <!-- Fix clone app crash due to not found WebView-->
+    <required-app-clone package="com.google.android.webview" />
+
+    <!-- Fix system_server crash due to not found google permission controller -->
+    <required-app-clone package="com.google.android.permissioncontroller" />
+
+    <!-- Fix IKSWS-140796: ExternalDisplayLauncher crash due to not found cli settings -->
+    <required-app-clone package="com.motorola.cli.settings" />
+
+    <!-- IKSWU-4735: Fix cts issue
+         cts case: com.android.cts.appcloning.contacts.ContactsSharingTest#testTwoContactsProviderProcesses -->
+    <required-app-clone package="com.android.providers.contacts" />
+
+    <!-- Fix IKSWU-42440 -->
+    <required-app-clone package="com.google.android.gms" />
+</config>

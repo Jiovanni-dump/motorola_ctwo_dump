@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<enable-disable-package>
+    <package-disable-enable-criteria package="com.gsma.rcs" default_action="disable">
+        <criteria action="enable" channel="cmcc"/>
+        <criteria action="enable" channel="cucn"/>
+        <criteria action="enable" channel="ctcn"/>
+        <criteria action="enable" channel="cbncn"/>
+        <criteria action="enable" channel="retcn"/>
+    </package-disable-enable-criteria>
+</enable-disable-package>
+

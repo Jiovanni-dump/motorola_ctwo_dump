@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config >
+    <!-- IKSWT-73924 Using by-pass api to get location for emergency platform service-->
+    <allow-ignore-location-settings package="com.android.dialer" attributionTag="*" />
+    <!-- KSWT-73924 end-->
+</config>

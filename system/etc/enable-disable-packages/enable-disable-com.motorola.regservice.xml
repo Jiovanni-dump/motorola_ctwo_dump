@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<enable-disable-package>
+    <package-disable-enable-criteria package="com.motorola.regservice" default_action="disable">
+        <criteria action="enable" channel="cmcc"/>
+        <criteria action="enable" channel="cbncn"/>
+        <criteria action="disable" channel="retcn"/>
+        <criteria action="enable" channel="ctcn"/>
+    </package-disable-enable-criteria>
+</enable-disable-package>

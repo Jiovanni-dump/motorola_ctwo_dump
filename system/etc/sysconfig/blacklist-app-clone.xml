@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- app clone user blacklist
+Eg: <disallowed-app-clone package="com.android.example" />
+-->
+<config>
+</config>
