@@ -1,0 +1,5 @@
+{ "source_dir": "/vendor/lib/rfsa/adsp",
+  "nanoapps": [
+    "activity",
+    "gating"
+]}
