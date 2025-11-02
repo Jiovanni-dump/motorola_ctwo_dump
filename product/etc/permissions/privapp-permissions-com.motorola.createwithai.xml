@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<permissions>
+    <privapp-permissions package="com.motorola.createwithai">
+        <!-- MPL: Protected permission needed to get device serial number for attestation -->
+        <permission name="android.permission.READ_PRIVILEGED_PHONE_STATE"/>
+        <!-- Protected permission needed to change the app name on notification -->
+        <permission name="android.permission.SUBSTITUTE_NOTIFICATION_APP_NAME"/>
+        <!-- Protected permission needed to change Motorola Settings -->
+        <permission name="com.motorola.permission.WRITE_SECURE_SETTINGS" />
+    </privapp-permissions>
+</permissions>

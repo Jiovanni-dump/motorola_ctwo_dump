@@ -1,0 +1,8 @@
+<exceptions>
+    <exception package="com.motorola.uxcore">
+        <permission name="android.permission.READ_CONTACTS" fixed="false"/>
+        <permission name="android.permission.READ_SMS" fixed="false"/>
+        <permission name="android.permission.READ_CALENDAR" fixed="false"/>
+        <permission name="android.permission.POST_NOTIFICATIONS" fixed="false"/>
+    </exception>
+</exceptions>

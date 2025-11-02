@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<filter-system-apps>
+    <module name="UXCore" action="disable" prop="ro.carrier" value="softbank;docomo;retjp;ymobile;kddi;rakuten"/>
+</filter-system-apps>

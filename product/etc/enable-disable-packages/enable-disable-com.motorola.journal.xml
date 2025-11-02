@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <enable-disable-package>
+     <package-disable-enable-criteria package="com.motorola.journal" default_action="enable">
+         <criteria action="disable"  prop="ro.product.is_prc"      prop_value="true"/>
+         <criteria action="disable"  organization_owned="1" />
+         <criteria action="disable"  prop="ro.mot.uxcore.enable"  prop_value="false" />
+     </package-disable-enable-criteria>
+ </enable-disable-package>

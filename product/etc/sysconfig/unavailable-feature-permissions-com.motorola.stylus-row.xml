@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+    <unavailable-feature-conditional name="com.motorola.stylus" prop="ro.mot.enable_motonotes_features" />
+</config>
+

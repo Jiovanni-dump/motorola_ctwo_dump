@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<permissions>
+    <feature             name="com.motorola.uxcore.platenablers1"/>
+    <unavailable-feature name="com.motorola.uxcore.platenablers1" prop="ro.mot.uxcore.enable"/>
+    <feature             name="com.motorola.uxcore.platenablers2"/>
+    <unavailable-feature name="com.motorola.uxcore.platenablers2" prop="ro.mot.uxcore.enable"/>
+</permissions>

@@ -1,0 +1,4 @@
+# MEP feature for LATAM/EU SKU only
+ro.mot.MepEnabled=true
+ro.gms.dck.se_capability=1
+ro.gms.dck.eligible_wcc=3
