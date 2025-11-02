@@ -1,0 +1,14 @@
+# user 15 UUV3S4HV-V2-ST11 0a9f5 release-keys
+- manufacturer: motorola
+- platform: pineapple
+- codename: ctwo
+- flavor: user
+- release: 15
+- id: UUV3S4HV-V2-ST11
+- incremental: 0a9f5
+- tags: release-keys
+- fingerprint: motorola/ctwo/ctwo:14/UUV3S4HV-V2-ST11/0a9f5:user/release-keys
+- is_ab: true
+- brand: motorola
+- branch: user-15-UUV3S4HV-V2-ST11-0a9f5-release-keys
+- repo: motorola_ctwo_dump

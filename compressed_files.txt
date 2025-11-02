@@ -1,0 +1,13 @@
+product/app/Maps/Maps.apk.xz
+product/app/Photos/Photos.apk.xz
+product/app/Gmail2/Gmail2.apk.xz
+product/app/YouTube/YouTube.apk.xz
+product/app/TrichromeLibrary64/TrichromeLibrary64.apk.xz
+product/priv-app/Messages/Messages.apk.xz
+product/priv-app/GmsCore/GmsCore.apk.xz
+recovery.img.xz
+system_ext/priv-app/SettingsMoto/SettingsMoto.apk.xz
+vendor/etc/camera/vidhance.lic.xz
+vendor/lib64/libarcsoft_turbo_motion_capture_raw.so.xz
+vendor/lib64/libarcsoft_turbo_hdr_raw.so.xz
+vendor/lib64/libdeep_raw_models.so.xz
