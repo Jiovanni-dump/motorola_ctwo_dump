@@ -1,0 +1,21 @@
+####################################
+# from generate-common-build-props
+# These properties identify this partition image.
+####################################
+ro.product.system_dlkm.brand=motorola
+ro.product.system_dlkm.device=msi
+ro.product.system_dlkm.manufacturer=motorola
+ro.product.system_dlkm.model=motorola edge 50 ultra
+ro.product.system_dlkm.name=ctwo_g
+ro.system_dlkm.build.date=Tue Jul 29 11:30:52 CDT 2025
+ro.system_dlkm.build.date.utc=1753806652
+ro.system_dlkm.build.fingerprint=motorola/ctwo_g/msi:15/V2UVS35M-V2-ST11/3ecd5:user/release-keys
+ro.system_dlkm.build.id=V2UVS35M-V2-ST11
+ro.system_dlkm.build.tags=release-keys
+ro.system_dlkm.build.type=user
+ro.system_dlkm.build.version.incremental=3ecd5
+ro.system_dlkm.build.version.release=15
+ro.system_dlkm.build.version.release_or_codename=15
+ro.system_dlkm.build.version.sdk=35
+# end of file
+
